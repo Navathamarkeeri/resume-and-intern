@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: ai-internship-finder-frontend
+    env: static
+    buildCommand: chmod +x render-build.sh && ./render-build.sh
+    staticPublishPath: ./build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://intern-backend-yfxc.onrender.com
+    nodeVersion: 18.19.0

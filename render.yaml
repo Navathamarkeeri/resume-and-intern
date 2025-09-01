@@ -1,0 +1,26 @@
+services:
+  # Backend API Service
+  - type: web
+    name: internship-backend
+    env: node
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: PORT
+        value: 5000
+    nodeVersion: 18.19.0
+
+  # Frontend Static Site
+  - type: web
+    name: internship-frontend
+    env: static
+    buildCommand: cd frontend && npm install --legacy-peer-deps && npm run build
+    staticPublishPath: frontend/build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://internship-backend.onrender.com
+    nodeVersion: 18.19.0
