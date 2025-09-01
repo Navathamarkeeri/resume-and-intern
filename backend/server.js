@@ -22,7 +22,7 @@ app.use(cors({
     "http://localhost:3001"
   ],
   credentials: true
-});
+}));
 
 // Serve uploaded files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
